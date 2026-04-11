@@ -1,11 +1,11 @@
-<?php include 'database.php' ?>
+<?php include 'database.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Description</title>
+    <title>Blog View</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -16,8 +16,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -36,7 +36,6 @@
 </head>
 
 <body>
-
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -76,41 +75,40 @@
                 <div class="row g-4">
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Description</h6>
+                            <h6 class="mb-4">Blog View</h6>
                             <div class="table-responsive">
 
-
+                            
                                 <table class="table">
-
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Product_Image (Another Colour)</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-
-                                    <?php
-                                    $show = "SELECT * FROM `shop` WHERE 1";
-
-                                    $id = mysqli_query($con, $show);
-
-                                    while ($pro = mysqli_fetch_array($id)) {
-                                    ?>
-
-
+                                    
                                         <tr>
-                                            <td><?php echo $pro['id']; ?></td>
-                                            <td><img src="product_image/<?php echo $pro['one_another_colour']; ?>" style="width:50px;height:50px" alt="">
-                                                <img src="product_image/<?php echo $pro['two_another_colour']; ?>" style="width:50px;height:50px" alt="">
-                                                <img src="product_image/<?php echo $pro['three_another_colour']; ?>" style="width:50px;height:50px" alt="" class="mt-1">
-                                            </td>
-
-                                            <td><?php echo $pro['description']; ?></td>
-
-                                            <td><a href="edit.php?id=<?php echo $pro['id']; ?>" class="btn btn-info">Edit</a>
-                                                <a href="delete.php?id=<?php echo $pro['id']; ?>" class="btn btn-danger">Delete</a>
-                                            </td>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Blog_Image</th>
+                                            <th scope="col">Blog_Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Content</th>
+                                            <th scope="col">Action</th>
                                         </tr>
+
+                                        <?php
+                                    $show ="SELECT * FROM `blog` WHERE 1";
+
+                                    $id = mysqli_query($con,$show);
+
+                                    while($pro = mysqli_fetch_array($id)){
+                                    ?>
+                                    
+                                    
+                                       <tr>
+                                        <td><?php echo $pro['id'];?></td>
+                                        <td><img src="blog_image/<?php echo $pro['blog_image'];?>" style="width:100px;height:100px" alt=""></td>
+                                        <td><?php echo $pro['blog_name'];?></td>
+                                        <td><?php echo $pro['dates'];?></td>
+                                        <td><?php echo $pro['content'];?></td>
+                                        
+                                        <td><a href="blogedit.php?id=<?php echo $pro['id'];?>" class="btn btn-info">Edit</a>
+                                        <a href="blogdelete.php?id=<?php echo $pro['id'];?>" class="btn btn-danger">Delete</a></td>
+                                    </tr>
 
                                     <?php
                                     }

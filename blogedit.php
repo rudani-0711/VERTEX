@@ -1,11 +1,10 @@
 <?php include 'database.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Description</title>
+    <title>Blog Edit</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -36,6 +35,14 @@
 </head>
 
 <body>
+    <?php
+      $id=$_GET['id'];
+      $show ="SELECT * FROM `blog` WHERE `id`='$id'";
+
+      $id = mysqli_query($con,$show);
+
+     ($pro = mysqli_fetch_array($id))
+     ?>
 
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -50,11 +57,11 @@
         <!-- Sidebar Start -->
         <div id="sidebar"></div>
 
-        <script>
-            $(document).ready(function() {
-                $("#sidebar").load("sidebar.php")
-            })
-        </script>
+            <script>
+                $(document).ready(function() {
+                    $("#sidebar").load("sidebar.php")
+                })
+            </script>
         <!-- Sidebar End -->
 
 
@@ -71,57 +78,71 @@
             <!-- Navbar End -->
 
 
-            <!-- Table Start -->
+            <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-12">
+                    <div class="col-sm-12 col-xl-12 h500">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Description</h6>
-                            <div class="table-responsive">
+                            <h6 class="mb-4">Product Upload</h6>
+                            <form method="post" enctype="multipart/form-data">
+
+                                <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label">Blog_Image</label>
+                                    <input class="form-control bg-dark" name="blima" type="file" id="formFileMultiple" multiple>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Blog_Name</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" name="nam" value="<?php echo $pro['blog_name'];?>">
+                                </div>
+
+                                <div class="mt-4">
+                                    <label for="category" class="form-label">Date</label>
+                                    <input type="date" id="myDate" class="bg-info" name="dat" value="<?php echo $pro['dates'];?>">
+                                    <script>
+                                        document.getElementById('myDate').valueAsDate = new Date();
+                                    </script>
+                                </div>
 
 
-                                <table class="table">
 
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Product_Image (Another Colour)</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
+                                <div class="mb-3 mt-3">
+                                    <label for="exampleInputPassword1" class="form-label">Content</label>
+                                    <textarea class="form-control h200" id="exampleInputPassword1" name="cont"><?php echo $pro['content'];?></textarea>
+                                </div>
 
-                                    <?php
-                                    $show = "SELECT * FROM `shop` WHERE 1";
-
-                                    $id = mysqli_query($con, $show);
-
-                                    while ($pro = mysqli_fetch_array($id)) {
-                                    ?>
-
-
-                                        <tr>
-                                            <td><?php echo $pro['id']; ?></td>
-                                            <td><img src="product_image/<?php echo $pro['one_another_colour']; ?>" style="width:50px;height:50px" alt="">
-                                                <img src="product_image/<?php echo $pro['two_another_colour']; ?>" style="width:50px;height:50px" alt="">
-                                                <img src="product_image/<?php echo $pro['three_another_colour']; ?>" style="width:50px;height:50px" alt="" class="mt-1">
-                                            </td>
-
-                                            <td><?php echo $pro['description']; ?></td>
-
-                                            <td><a href="edit.php?id=<?php echo $pro['id']; ?>" class="btn btn-info">Edit</a>
-                                                <a href="delete.php?id=<?php echo $pro['id']; ?>" class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-
-                                    <?php
-                                    }
-                                    ?>
-                                </table>
-                            </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-primary col-11 ms-4" name="upl">Upload</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+
+                    <?php
+                    $id=$_GET['id'];
+                    if (isset($_POST['upl'])) {
+                        $blog_image = $_FILES['blima']['name'];
+                        $blog_name = $_POST['nam'];
+                        $dates = $_POST['dat'];
+                        $content = $_POST['cont'];
+
+
+                        $sql = "UPDATE `blog` SET `blog_image`='$blog_image',`blog_name`='$blog_name',`dates`='$dates',`content`='$content' WHERE `id`='$id'";
+
+
+                        $res  = mysqli_query($con, $sql);
+
+                        if ($res) {
+                            echo "<script>alert('Blog is Updated Successful')</script>";
+                            echo "<script>location.href='blogview.php'</script>";
+                        } else {
+                            echo "<script>alert('error')</script>";
+                        }
+                    }
+                    ?>
                 </div>
             </div>
-            <!-- Table End -->
+            <!-- Form End -->
 
 
             <!-- Footer Start -->
