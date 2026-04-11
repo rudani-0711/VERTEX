@@ -1,8 +1,10 @@
-<?php
+<?php   
+
 session_start();
 session_unset();
 session_destroy();
 
-header("Location: userlogin.php");
-exit;
+
+echo "<script>location.href='login.php'</script>";
+
 ?>
