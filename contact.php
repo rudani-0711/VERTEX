@@ -88,7 +88,7 @@
                         <div class="col-md-10 col-8">
                             <p class="mb-0 ms-md-5 ms-4 p57"><b>Email</b></p>
 
-                            <p class="mt-1 ms-md-5 ms-4 p58">wearvertex.in@gmail.com</p>
+                            <p class="mt-1 ms-md-5 ms-4 p58">abcd@gmail.com</p>
                         </div>
 
 
@@ -102,7 +102,7 @@
                         <div class="col-md-10 col-8">
                             <p class="mb-0 ms-md-5 ms-4 p57"><b>Phone</b></p>
 
-                            <p class="mt-1 ms-md-5 ms-4 p58">+91-9213678690</p>
+                            <p class="mt-1 ms-md-5 ms-4 p58">+91-9876543210</p>
                         </div>
 
 
@@ -117,7 +117,7 @@
                         <div class="col-md-10 col-8">
                             <p class="mb-0 ms-md-5 ms-4 p57"><b>Address</b></p>
 
-                            <p class="mt-1 ms-md-5 ms-4 p58">Ahmedabad,Gujarat,India - 380001</p>
+                            <p class="mt-1 ms-md-5 ms-4 p58">india</p>
                         </div>
                     </div>
                 </div>
