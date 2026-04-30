@@ -78,9 +78,9 @@
                 <div class="col-md-7 col-1"></div>
 
                 <div class="col-md-2 col-5">
-                    <a href="https://www.facebook.com/share/1EHf4kFdDD/"><button class="ms-md-3 ms-1 but1"><i class="fa fa-facebook" aria-hidden="true"></i></button></a>
-                    <a href="https://x.com/wearvertexin"><button class="ms-md-3 but1"><i class="fa fa-twitter" aria-hidden="true"></i></button></a>
-                    <a href="https://www.instagram.com/wearvertex.in?igsh=ZjRoNjN1OHpjZmpx"><button class="ms-md-3 but1"><i class="fa fa-instagram" aria-hidden="true"></i></button></a>
+                    <a href="#"><button class="ms-md-3 ms-1 but1"><i class="fa fa-facebook" aria-hidden="true"></i></button></a>
+                    <a href="#"><button class="ms-md-3 but1"><i class="fa fa-twitter" aria-hidden="true"></i></button></a>
+                    <a href="#"><button class="ms-md-3 but1"><i class="fa fa-instagram" aria-hidden="true"></i></button></a>
                 </div>
             </div>
         </div>
